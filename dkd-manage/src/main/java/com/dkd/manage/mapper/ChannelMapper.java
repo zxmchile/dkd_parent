@@ -36,6 +36,13 @@ public interface ChannelMapper
     public int insertChannel(Channel channel);
 
     /**
+     * 批量新增售货机货道
+     * @param channelList
+     * @return
+     */
+    public int insertBatchChannel(List<Channel> channelList);
+
+    /**
      * 修改售货机货道
      * 
      * @param channel 售货机货道
@@ -58,4 +65,11 @@ public interface ChannelMapper
      * @return 结果
      */
     public int deleteChannelByIds(Long[] ids);
+
+    /**
+     * 根据skuIds查询售货机货道
+     * @param skuIds
+     * @return
+     */
+    public int countChannelBySkuIds(Long[] skuIds);
 }

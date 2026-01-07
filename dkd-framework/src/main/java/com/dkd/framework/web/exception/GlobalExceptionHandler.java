@@ -143,8 +143,11 @@ public class GlobalExceptionHandler
     @ExceptionHandler(DataIntegrityViolationException.class)
     public AjaxResult handleDataIntegrityViolationException(DataIntegrityViolationException e) {
         log.error(e.getMessage(), e);
-        if (e.getMessage().contains("foreign")) {
+        if (e.getMessage().contains("foreign")) { // 外键报错信息
             return AjaxResult.error("存在数据引用，无法删除");
+        }
+        if (e.getMessage().contains("Duplicate")) { // 主键重复，唯一性报错信息
+            return AjaxResult.error("数据已存在");
         }
         return AjaxResult.error("数据完整性异常");
     }

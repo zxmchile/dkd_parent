@@ -58,6 +58,17 @@ public class ChannelServiceImpl implements IChannelService
     }
 
     /**
+     * 批量新增售货机货道
+     * @param channelList
+     * @return
+     */
+    @Override
+    public int insertBatchChannel(List<Channel> channelList) {
+        int result = channelMapper.insertBatchChannel(channelList);
+        return result;
+    }
+
+    /**
      * 修改售货机货道
      * 
      * @param channel 售货机货道
@@ -92,5 +103,16 @@ public class ChannelServiceImpl implements IChannelService
     public int deleteChannelById(Long id)
     {
         return channelMapper.deleteChannelById(id);
+    }
+
+    /**
+     * 根据skuIds查询售货机货道
+     * @param skuIds
+     * @return
+     */
+    @Override
+    public int countChannelBySkuIds(Long[] skuIds) {
+        int result = channelMapper.countChannelBySkuIds(skuIds);
+        return result;
     }
 }

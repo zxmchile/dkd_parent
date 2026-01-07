@@ -36,6 +36,13 @@ public interface IChannelService
     public int insertChannel(Channel channel);
 
     /**
+     * 批量新增售货机货道
+     * @param channelList
+     * @return
+     */
+    public int insertBatchChannel(List<Channel> channelList);
+
+    /**
      * 修改售货机货道
      * 
      * @param channel 售货机货道
@@ -58,4 +65,11 @@ public interface IChannelService
      * @return 结果
      */
     public int deleteChannelById(Long id);
+
+    /**
+     * 根据skuIds查询货道数量
+     * @param skuIds
+     * @return
+     */
+    public int countChannelBySkuIds(Long[] skuIds);
 }
